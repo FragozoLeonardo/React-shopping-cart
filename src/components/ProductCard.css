@@ -1,0 +1,12 @@
+/* src/components/ProductCard.css */
+.product-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+}
+
+.product-image {
+  width: 150px;
+  height: auto;
+}
