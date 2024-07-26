@@ -1,9 +1,8 @@
-// src/components/Cart.js
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const Cart = ({ cart }) => {
-  if (!cart || !Array.isArray(cart)) {
+const Cart = ({ cart = [], removeFromCart }) => {
+  if (!Array.isArray(cart)) {
     console.error('Expected `cart` to be an array, but received:', cart);
     return <div>Error: Cart data is not valid.</div>;
   }
@@ -13,9 +12,15 @@ const Cart = ({ cart }) => {
   }
 
   return (
-    <div className="cart">
+    <div>
       {cart.map(product => (
-        <ProductCard key={product.id} product={product} />
+        <div key={product.id} className="cart-item">
+          <ProductCard
+            product={product}
+            removeFromCart={removeFromCart}
+            inCart={true} // `inCart` is true when rendering in Cart
+          />
+        </div>
       ))}
     </div>
   );

@@ -1,20 +1,15 @@
-// src/components/ProductCard.js
 import React from 'react';
 import './ProductCard.css';
 
-const ProductCard = ({ product, addToCart }) => {
-  if (!product) {
-    return <div>Error: Product data is not valid.</div>;
-  }
-
-  const { id, title, image, price } = product;
-
+const ProductCard = ({ product, addToCart, removeFromCart, inCart }) => {
   return (
     <div className="product-card">
-      <img src={image} alt={title} className="product-image" />
-      <h3>{title}</h3>
-      <p>${price}</p>
-      {addToCart && (
+      <img src={product.image} alt={product.title} className="product-image" />
+      <h2>{product.title}</h2>
+      <p>${product.price}</p>
+      {inCart ? (
+        <button onClick={() => removeFromCart(product.id)}>Remove from Cart</button>
+      ) : (
         <button onClick={() => addToCart(product)}>Add to Cart</button>
       )}
     </div>

@@ -1,13 +1,10 @@
-// src/pages/Home.js
 import React from 'react';
-import Navbar from '../components/Navbar';
 
 const Home = ({ cartCount }) => {
     return (
         <div>
-            <Navbar cartCount={cartCount} />
-            <h1>Welcome to the Home Page</h1>
-            <p>Add some images or information here.</p>
+            <h1>Welcome to Leo's Store</h1>
+            <p>The Coolest Store From The Internet</p>
         </div>
     );
 };

@@ -1,0 +1,40 @@
+/* Navbar.css */
+
+nav {
+  background-color: #282c34; /* Cor escura para o fundo da barra de navegação */
+  padding: 10px 20px;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  margin: 0 15px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #61dafb; /* Cor clara ao passar o mouse */
+}
+
+.cart-count {
+  background-color: #333; /* Cor de fundo escura para o contador */
+  color: white; /* Cor do texto branca */
+  border-radius: 50%;
+  padding: 3px 8px;
+  font-size: 14px;
+  font-weight: normal;
+}

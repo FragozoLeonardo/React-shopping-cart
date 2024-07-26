@@ -1,11 +1,10 @@
-// src/pages/Shop.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from '../components/Navbar';
 import ProductCard from '../components/ProductCard';
 
-const Shop = ({ cartCount, addToCart }) => {
+const Shop = ({ cartCount, addToCart, removeFromCart }) => { // Adicione removeFromCart aqui
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -19,13 +18,27 @@ const Shop = ({ cartCount, addToCart }) => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    // Fetch cart from local storage or server if needed
+    // For now, we can use the `cart` from props
+  }, [cartCount]);
+
   return (
     <div>
-      <Navbar cartCount={cartCount} />
+      <h1>Shop</h1>
       <div className="shop">
-        {products.map(product => (
-          <ProductCard key={product.id} product={product} addToCart={addToCart} />
-        ))}
+        {products.map(product => {
+          const isInCart = cart.some(item => item.id === product.id);
+          return (
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={addToCart}
+              removeFromCart={removeFromCart} // Passe removeFromCart aqui
+              inCart={isInCart}
+            />
+          );
+        })}
       </div>
     </div>
   );
